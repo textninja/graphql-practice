@@ -23,8 +23,6 @@ startApolloServer(
         hello: String
         world: String
     }
-
-
     `,
     {
         Query: {
