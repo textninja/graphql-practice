@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/textninja/graphql-practice/issues"
   },
-  "homepage": "https://github.com/textninja/graphql-practice#readme"
+  "homepage": "https://github.com/textninja/graphql-practice#readme",
+  "dependencies": {
+    "graphql": "^16.3.0"
+  }
 }
