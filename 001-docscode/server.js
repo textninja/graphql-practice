@@ -2,6 +2,8 @@ import { ApolloServer } from 'apollo-server-express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import express from 'express';
 import http from 'http';
+import fs from 'fs';
+import resolvers from './resolvers.js';
 
 async function startApolloServer(typeDefs, resolvers) {
     const app = express();
@@ -18,16 +20,6 @@ async function startApolloServer(typeDefs, resolvers) {
 }
 
 startApolloServer(
-    `
-    type Query {
-        hello: String
-        world: String
-    }
-    `,
-    {
-        Query: {
-            hello: () => "hello world",
-            world: () => "hi world"
-        }
-    }
+    fs.readFileSync('schema.graphql', 'utf-8'),
+    resolvers
 );
